@@ -3,9 +3,6 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.3.2",
-		"@testing-library/user-event": "^7.1.2",
 		"@types/jest": "24.0.6",
 		"@types/node": "^22.7.7",
 		"@types/react": "^18.3.11",
@@ -34,7 +31,8 @@
 	"scripts": {
 		"start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
+		"test:react": "react-scripts test",
+		"test": "tsc --noEmit && jest --verbose",
 		"eject": "react-scripts eject"
 	},
 	"browserslist": {
@@ -50,7 +48,12 @@
 		]
 	},
 	"devDependencies": {
-		"@types/react-router-dom": "^5.1.5",
+		"@babel/plugin-syntax-dynamic-import": "^7.8.3",
+		"@babel/preset-typescript": "^7.25.7",
+		"@testing-library/dom": "^10.4.0",
+		"@testing-library/react": "^16.0.1",
+		"@testing-library/user-event": "^14.5.2",
+		"@types/react-router-dom": "^5.3.3",
 		"@types/styled-components": "^5.1.1",
 		"@types/yup": "^0.29.3",
 		"eslint": "6.8.0",
