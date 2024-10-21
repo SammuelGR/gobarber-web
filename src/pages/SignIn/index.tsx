@@ -21,7 +21,7 @@ interface SignInFormData {
 	password: string;
 }
 
-const SignIn: React.FC = () => {
+const SignIn = () => {
 	const formRef = useRef<FormHandles>(null);
 
 	const { signIn } = useAuth();
@@ -76,8 +76,14 @@ const SignIn: React.FC = () => {
 				<AnimationContainer>
 					<img src={logoImg} alt="GoBarber" />
 
-					<Form ref={formRef} onSubmit={handleSubmit}>
-						<h1>Faça seu logon</h1>
+					<Form
+						ref={formRef}
+						onSubmit={handleSubmit}
+						placeholder={undefined}
+						onPointerEnterCapture={undefined}
+						onPointerLeaveCapture={undefined}
+					>
+						<h1>Faça seu login</h1>
 
 						<Input name="email" icon={FiMail} placeholder="E-mail" />
 

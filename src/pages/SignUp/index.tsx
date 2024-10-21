@@ -24,7 +24,7 @@ interface SignUpFormData {
 	password: string;
 }
 
-const SignUp: React.FC = () => {
+const SignUp = () => {
 	const formRef = useRef<FormHandles>(null);
 	const { addToast } = useToast();
 	const history = useHistory();
@@ -82,7 +82,13 @@ const SignUp: React.FC = () => {
 				<AnimationContainer>
 					<img src={logoImg} alt="GoBarber" />
 
-					<Form ref={formRef} onSubmit={handleSubmit}>
+					<Form
+						ref={formRef}
+						onSubmit={handleSubmit}
+						placeholder={undefined}
+						onPointerEnterCapture={undefined}
+						onPointerLeaveCapture={undefined}
+					>
 						<h1>Faça seu cadastro</h1>
 
 						<Input name="name" icon={FiUser} placeholder="Nome" />

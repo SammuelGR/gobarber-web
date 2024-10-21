@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { Container } from './styles';
 
@@ -7,7 +7,7 @@ interface TooltipProps {
 	className?: string;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({
+const Tooltip: React.FC<TooltipProps & PropsWithChildren> = ({
 	title,
 	className = '',
 	children,

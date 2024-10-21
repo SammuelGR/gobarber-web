@@ -7,7 +7,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 
-const Routes: React.FC = () => (
+const Routes = () => (
 	<Switch>
 		<Route path="/" exact component={SignIn} />
 		<Route path="/signup" component={SignUp} />

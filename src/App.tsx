@@ -7,7 +7,7 @@ import AppProvider from './hooks';
 
 import Routes from './routes';
 
-const App: React.FC = () => (
+const App = () => (
 	<Router>
 		<AppProvider>
 			<Routes />

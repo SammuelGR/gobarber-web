@@ -19,7 +19,7 @@ interface AuthContextData {
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-export const AuthProvider: React.FC = ({ children }) => {
+export const AuthProvider = ({ children }: React.PropsWithChildren) => {
 	const [data, setData] = useState<AuthState>(() => {
 		const token = localStorage.getItem('@GoBarber:token');
 		const user = localStorage.getItem('@GoBarber:user');
@@ -31,19 +31,22 @@ export const AuthProvider: React.FC = ({ children }) => {
 		return {} as AuthState;
 	});
 
-	const signIn = useCallback(async ({ email, password }) => {
-		const response = await api.post('/sessions', {
-			email,
-			password,
-		});
+	const signIn = useCallback(
+		async ({ email, password }: { email: string; password: string }) => {
+			const response = await api.post('/sessions', {
+				email,
+				password,
+			});
 
-		const { token, user } = response.data;
+			const { token, user } = response.data;
 
-		localStorage.setItem('@GoBarber:token', token);
-		localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+			localStorage.setItem('@GoBarber:token', token);
+			localStorage.setItem('@GoBarber:user', JSON.stringify(user));
 
-		setData({ token, user });
-	}, []);
+			setData({ token, user });
+		},
+		[],
+	);
 
 	const signOut = useCallback(() => {
 		localStorage.removeItem('@Gobarber:token');
